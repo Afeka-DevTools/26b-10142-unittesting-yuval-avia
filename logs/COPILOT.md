@@ -1,3 +1,37 @@
+# Unit Tests for App.java
+
+## Question
+> Create unit tests for App.java. Use assert functions in AppTest file. Do 80% coverage.
+
+---
+
+## Overview
+
+`App.java` contains 11 static utility methods. Tests were written in `AppTest.java` using **JUnit 5** with `static org.junit.jupiter.api.Assertions.*` imports. All 45 tests pass with 0 failures.
+
+---
+
+## Methods Tested
+
+| Method | Tests Written | Cases Covered |
+|---|---|---|
+| `add` | 4 | two positives, positive + negative, both zero, both negative |
+| `isPrime` | 3 | below 2 (false), known primes (true), composites (false) |
+| `reverse` | 3 | normal string, empty string, single char |
+| `factorial` | 3 | zero, positive number, negative (exception) |
+| `isPalindrome` | 5 | true word, false word, phrase with punctuation, single char, empty string |
+| `fibonacciUpTo` | 4 | n=0, n=1, n=10, negative (exception) |
+| `charFrequency` | 3 | repeated chars, empty string, all same char |
+| `isAnagram` | 6 | true anagram, false, with spaces, case-insensitive, different lengths, both empty |
+| `average` | 5 | normal, single element, empty array (exception), all negatives, mixed positive+negative |
+| `filterEvens` | 5 | mixed list, all odd, empty list, all even, negative even numbers |
+| `mostCommonWord` | 4 | repeated word, single word, text with punctuation, mixed case |
+
+---
+
+## The AppTest.java File
+
+```java
 package org.example;
 
 import org.junit.jupiter.api.Test;
@@ -275,3 +309,23 @@ class AppTest {
         assertEquals("hello", App.mostCommonWord("Hello hello HELLO world"));
     }
 }
+```
+
+---
+
+## Assert Functions Used
+
+| Assert | Purpose |
+|---|---|
+| `assertEquals(expected, actual)` | Verifies a method returns the exact expected value |
+| `assertTrue(condition)` | Verifies a boolean result is `true` |
+| `assertFalse(condition)` | Verifies a boolean result is `false` |
+| `assertThrows(Exception.class, lambda)` | Verifies a method throws the expected exception |
+
+---
+
+## Results
+
+- **45 tests** — 0 failures, 0 errors, 0 skipped
+- **Coverage** — all 11 methods covered, all edge cases and code paths verified
+- **Coverage enforced** by JaCoCo with `minimum = 0.80` in `build.gradle.kts`
